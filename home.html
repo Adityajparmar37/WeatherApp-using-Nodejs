@@ -156,7 +156,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 15em;
+            font-size: 3em;
         }
 
         #weathercon .fa-sun {
@@ -170,7 +170,7 @@
             }
 
             to {
-                transform: scale(1.6);
+                transform: scale(1.5);
             }
         }
 
@@ -203,6 +203,7 @@
             }
         }
 
+
         .search {
             border-style: none;
             background-color: transparent;
@@ -221,44 +222,52 @@
 
         }
 
+        .submit{
+            
+            height: 40px;
+            margin-top: 2%;
+            margin-left: 38%;
+            width: 20%;
+            color: white;
+            background-color: #032153;
+            border-style: none;
+            border-radius: 15%
+        }
+
         body>span {
             width: 100vw;
             text-align: center;
             color: grey;
         }
+
+      
     </style>
     <title>Weather</title>
 </head>
 
 <body>
-    <div class="box">
-        <div class="wave -one"></div>
-        <div class="wave -two"></div>
-        <div class="wave -three"></div>
-<!-- searchbar -->
-        <div class="searchbar">
-            <input type="text" name="q" placeholder="Search here" class="search">
-            <input type="submit" id="q"></div>
+    <form action="/" method="post">
+        <div class="box">
+            <div class="wave -one"></div>
+            <div class="wave -two"></div>
+            <div class="wave -three"></div>
+            <div class="searchbar">
+                <input type="text" placeholder="Search here" class="search" name="q">
+                <br>
+                <input type="submit" id="q" class="submit">
+            </div>
+            <div id="weathercon"><i class="fa-solid fa-sun" style="color: #eccc68;"></i></div>
+            <div class="info">
+                <h2 class="location"><i class="fa-solid fa-street-view" style="color: #fff;"></i>{%location%} ,
+                    {%country%}
+                </h2>
 
-<!-- ----- -->
-                <div id="weathercon"><i class="fa-solid fa-sun" style="color: #eccc68;"></i></div>
-                <div class="info">
-                    <h2 class="location"><i class="fa-solid fa-street-view" style="color:black;"></i>{%location%} ,
-                        {%country%}
-                    </h2>
-
-                    <p id="date">SAT | JUN 10 | 4:45AM</p>
-                    <h1 class="temp">{%tempval%}&deg;C</h1>
-                    <h3 class="tempmin_max">Humidity: {%humidity%}% | WindSpeed: {%windSpeed%} m/s </h3>
-                </div>
+                <p id="date">SAT | JUN 10 | 4:45AM</p>
+                <h1 class="temp">{%tempval%}&deg;C</h1>
+                <h3 class="tempmin_max">Humidity : {%humidity%} | WindSpeed : {%windSpeed%}</h3>
+            </div>
         </div>
         <script>
-
-            //search value from user
-            let q = document.getElementById("q").value;
-            //------------//
-
-
 
             const curdate = document.getElementById("date");
             let weathcon = document.getElementById("weathercon");
@@ -273,7 +282,7 @@
             // } else if (tempStatus == "Rainy") {
             //     weathercon.innerHTML = "<i class='fa-sharp fa-solid fa-cloud-rain' style='color:#a4606e;'></i>";
             // } else {
-            //     weathercon.innerHTML = "<i class='fa-solid fa-clouds' style='color:#44c3de;'></i>"
+            //     weathercon.innerHTML = "<i class='fa-solid fa-clouds' style='color:#44c3de;'></i>";
             // }
 
             const getCurrentDay = () => {
@@ -336,7 +345,10 @@
             };
 
             curdate.innerHTML = getCurrentDay() + " " + "|" + " " + getCurrentTime();
+
+            let q = document.getElementById("q").value;
         </script>
+    </form>
 </body>
 
 </html>

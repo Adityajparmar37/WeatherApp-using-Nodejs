@@ -1,7 +1,7 @@
 {
-  "name": "weatherapp",
+  "name": "project",
   "version": "1.0.0",
-  "description": "weather app using nodejs",
+  "description": "creating a weather app using nodejs",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,6 +9,7 @@
   "author": "Aditya Parmar",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.18.2",
     "requests": "^0.3.0"
   }
 }
